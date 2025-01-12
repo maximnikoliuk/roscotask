@@ -107,7 +107,7 @@ export default function UserForm() {
         <Form.Group as={Col} md="6" controlId="validationCustom04">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type="password" // Changed type to password for better security
+            type="password"
             name="password"
             placeholder="Password"
             required
