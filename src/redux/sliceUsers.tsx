@@ -13,12 +13,16 @@ export const sliceUsers = createSlice({
     setUsers: (state, { payload }) => {
       state.userList = payload;
     },
+    setTotalCount: (state, { payload }) => {
+      state.totalCount = payload;
+    },
     reset: () => initialState,
   },
 });
 
 export const {
   setUsers,
+  setTotalCount,
 } = sliceUsers.actions;
 
 export default sliceUsers.reducer;

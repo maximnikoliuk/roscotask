@@ -14,3 +14,9 @@ export type Post = {
   id: string;
   created_time: string;
 }
+
+export type Like = {
+  id: number;
+  name: string;
+  created_time: string;
+}
