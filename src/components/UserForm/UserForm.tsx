@@ -62,7 +62,7 @@ export default function UserForm() {
     } catch (err: any) {
       dispatch(showSnackbar({
         variant: 'danger',
-        message: "Error while creating new user"
+        message: err?.message || "Error while creating new user"
       }));
     }
   };
