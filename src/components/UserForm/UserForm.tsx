@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, getFirestore } from 'firebase/firestore/lite';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -9,6 +10,7 @@ import { app } from "../../firebase/firebase.tsx";
 import { UserType } from "../../types/UsersTypes.tsx";
 import { useAppDispatch } from "../../redux/store.tsx";
 import { showSnackbar } from "../../redux/sliceNotifs.tsx";
+import { auth } from "../../firebase/firebase.tsx";
 
 export default function UserForm() {
   const dispatch = useAppDispatch();
@@ -46,6 +48,7 @@ export default function UserForm() {
           password: formEntries.password as string,
           text: formEntries.text as string || ''
         };
+        await createUserWithEmailAndPassword(auth, data.email, data.password);
         await addNewUser(data);
         handleReset();
         setValidated(false);
